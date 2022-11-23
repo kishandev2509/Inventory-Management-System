@@ -1,8 +1,6 @@
 import sqlite3
-from time import strftime
 from tkinter import messagebox, ttk
 from tkinter import *
-from PIL import Image,ImageTk
 
 class basicWindow():
     def __init__(self,root):

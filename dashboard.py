@@ -1,4 +1,3 @@
-from posixpath import realpath
 from subprocess import call
 from os import listdir,getcwd
 import sqlite3
