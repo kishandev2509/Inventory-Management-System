@@ -7,7 +7,7 @@ def createDB():
     con.commit()
 
     
-    cur.execute(f"Insert or ignore into employee(eid,name,email,gender,contact,dob,pass,utype,address,salary) values(1,'','','','','','','password','Admin','','')")
+    cur.execute(f"Insert or ignore into employee(eid,name,email,gender,contact,dob,pass,utype,address,salary) values(1,'','','','','','password','Admin','','')")
     con.commit()
 
     
