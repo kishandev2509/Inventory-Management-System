@@ -57,7 +57,7 @@ class EC(basicWindow):
 
 
         #===title===
-        title=Label(self.root,text="Employee Details",bg="#0f4d7d",fg="white",font=("goudy old style",20)).place(x=50,y=100,width=1000)
+        title=Label(self.root,text="Employee Details",bg="#0f4d7d",fg="white",font=("goudy old style",20)).place(x=20,y=100,width=1060)
 
 
 
@@ -198,57 +198,50 @@ class EC(basicWindow):
 class empDetails(basicWindow):
     def __init__(self,root,func):
         super().__init__(root)
+        self.root.geometry("800x400+380+140")
         self.func = func
 
         self.deatilsFrame = Frame(self.root,bd=2,relief=RIDGE,bg="white")
 
         #===content===
-        #===row1===
         lblEmpId=Label(self.deatilsFrame,text="EmpId",bg="white",font=("goudy old style",15)).place(x=50,y=20)
-        lblGender=Label(self.deatilsFrame,text="Gender",bg="white",font=("goudy old style",15)).place(x=400,y=20)
-        lblContact=Label(self.deatilsFrame,text="Contact",bg="white",font=("goudy old style",15)).place(x=750,y=20)
-        
-
         txtEmpId=Entry(self.deatilsFrame,textvariable=self.varEmpId,bg="lightyellow",font=("goudy old style",15)).place(x=150,y=20,width=180)
+
+        lblEmail=Label(self.deatilsFrame,text="Email",bg="white",font=("goudy old style",15)).place(x=50,y=60)
+        txtEmail=Entry(self.deatilsFrame,textvariable=self.varEmail,bg="lightyellow",font=("goudy old style",15)).place(x=150,y=60,width=180)
         
+        lblPass=Label(self.deatilsFrame,text="Password",bg="white",font=("goudy old style",15)).place(x=50,y=100)
+        txtPass=Entry(self.deatilsFrame,textvariable=self.varPass,bg="lightyellow",font=("goudy old style",15)).place(x=150,y=100,width=180)
+
+        lblName=Label(self.deatilsFrame,text="Name",bg="white",font=("goudy old style",15)).place(x=50,y=140)
+        txtName=Entry(self.deatilsFrame,textvariable=self.varName,bg="lightyellow",font=("goudy old style",15)).place(x=150,y=140,width=180)
+
+        lblContact=Label(self.deatilsFrame,text="Contact",bg="white",font=("goudy old style",15)).place(x=50,y=180)
+        txtContact=Entry(self.deatilsFrame,textvariable=self.varContact,bg="lightyellow",font=("goudy old style",15)).place(x=150,y=180,width=180)    
+
+        lblUType=Label(self.deatilsFrame,text="UType",bg="white",font=("goudy old style",15)).place(x=50,y=220)
+        cmbUType=ttk.Combobox(self.deatilsFrame,textvariable=self.varUType,values=("Employee","Admin"),state="readonly",justify=CENTER,font=("goudy old style",15))
+        cmbUType.place(x=150,y=220,width=180)
+        cmbUType.current(0)
+
+        lblAddress=Label(self.deatilsFrame,text="Address",bg="white",font=("goudy old style",15)).place(x=50,y=270)
+        self.txtAddress=Text(self.deatilsFrame,bg="lightyellow",font=("goudy old style",15))
+        self.txtAddress.place(x=150,y=270,width=330,height=70)
+        
+        lblGender=Label(self.deatilsFrame,text="Gender",bg="white",font=("goudy old style",15)).place(x=400,y=20)
         cmbGender=ttk.Combobox(self.deatilsFrame,textvariable=self.varGender,values=("Male","Female","Others"),state="readonly",justify=CENTER,font=("goudy old style",15))
         cmbGender.place(x=500,y=20,width=180)
         cmbGender.current(0)
 
-        txtContact=Entry(self.deatilsFrame,textvariable=self.varContact,bg="lightyellow",font=("goudy old style",15)).place(x=850,y=20,width=180)
+        lblDOB=Label(self.deatilsFrame,text="DOB",bg="white",font=("goudy old style",15)).place(x=400,y=60)
+        txtDOB=Entry(self.deatilsFrame,textvariable=self.varDOB,bg="lightyellow",font=("goudy old style",15)).place(x=500,y=60,width=180)
         
-
-        #===row2===
-        lblName=Label(self.deatilsFrame,text="Name",bg="white",font=("goudy old style",15)).place(x=50,y=190)
-        lblDOB=Label(self.deatilsFrame,text="DOB",bg="white",font=("goudy old style",15)).place(x=400,y=190)
-        
-        txtName=Entry(self.deatilsFrame,textvariable=self.varName,bg="lightyellow",font=("goudy old style",15)).place(x=150,y=190,width=180)
-        txtDOB=Entry(self.deatilsFrame,textvariable=self.varDOB,bg="lightyellow",font=("goudy old style",15)).place(x=500,y=190,width=180)
-
-        #===row3===
-        lblEmail=Label(self.deatilsFrame,text="Email",bg="white",font=("goudy old style",15)).place(x=50,y=230)
-        lblPass=Label(self.deatilsFrame,text="Password",bg="white",font=("goudy old style",15)).place(x=400,y=230)
-        lblUType=Label(self.deatilsFrame,text="UType",bg="white",font=("goudy old style",15)).place(x=750,y=230)
-        
-        txtEmail=Entry(self.deatilsFrame,textvariable=self.varEmail,bg="lightyellow",font=("goudy old style",15)).place(x=150,y=230,width=180)
-        txtPass=Entry(self.deatilsFrame,textvariable=self.varPass,bg="lightyellow",font=("goudy old style",15)).place(x=500,y=230,width=180)
-
-        cmbUType=ttk.Combobox(self.deatilsFrame,textvariable=self.varUType,values=("Employee","Admin"),state="readonly",justify=CENTER,font=("goudy old style",15))
-        cmbUType.place(x=850,y=230,width=180)
-        cmbUType.current(0)
-
-        #===row4===
-        lblAddress=Label(self.deatilsFrame,text="Address",bg="white",font=("goudy old style",15)).place(x=50,y=270)
-        lblSalary=Label(self.deatilsFrame,text="Salary",bg="white",font=("goudy old style",15)).place(x=550,y=270)
-        
-        
-        self.txtAddress=Text(self.deatilsFrame,bg="lightyellow",font=("goudy old style",15))
-        self.txtAddress.place(x=150,y=270,width=330,height=70)
-        txtSalary=Entry(self.deatilsFrame,textvariable=self.varSalary,bg="lightyellow",font=("goudy old style",15)).place(x=650,y=270,width=180)
+        lblSalary=Label(self.deatilsFrame,text="Salary",bg="white",font=("goudy old style",15)).place(x=400,y=100)        
+        txtSalary=Entry(self.deatilsFrame,textvariable=self.varSalary,bg="lightyellow",font=("goudy old style",15)).place(x=500,y=100,width=180)
 
         
         self.btnCheck=Button(self.root,text=self.func,command=self.check,fg="white",cursor="hand2",font=("goudy old style",20))
-        self.btnCheck.place(x=880,y=325,width=150,height=27)
+        self.btnCheck.place(x=530,y=300,width=150,height=27)
         
 
         self.deatilsFrame.place(x=0,y=0,height=500,width=1100)
@@ -261,11 +254,11 @@ class empDetails(basicWindow):
         self.varGender.set(obj.row[3])
         self.varContact.set(obj.row[4])
         self.varDOB.set(obj.row[5])
-        self.varPass.set(obj.row[7])
-        self.varUType.set(obj.row[8])
+        self.varPass.set(obj.row[6])
+        self.varUType.set(obj.row[7])
         self.txtAddress.delete('1.0',END)
-        self.txtAddress.insert(END,obj.row[9])
-        self.varSalary.set(obj.row[10])
+        self.txtAddress.insert(END,obj.row[8])
+        self.varSalary.set(obj.row[9])
 
     def check(self):
         if self.func == "Add":
@@ -314,6 +307,7 @@ class empDetails(basicWindow):
                     cur.execute(f"Update employee set name='{self.varName.get()}',email='{self.varEmail.get()}',gender='{self.varGender.get()}',contact='{self.varContact.get()}',dob='{self.varDOB.get()}',pass='{self.varPass.get()}',utype='{self.varUType.get()}',address='{self.txtAddress.get(1.0,END)}',salary='{self.varSalary.get()}' where eid='{self.varEmpId.get()}'")
                     con.commit()
                     messagebox.showinfo("Success","Employee updated Successfull",parent=self.root)
+            self.root.destroy()
         except Exception as e:
             messagebox.showerror("Error",f"Error due to {str(e)}",parent=self.root)
         
