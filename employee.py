@@ -92,15 +92,14 @@ class EC(basicWindow):
         self.employeeTable.heading("salary",text="Salary")
         self.employeeTable["show"]="headings"
 
-        self.employeeTable.column("eid",width=90)
-        self.employeeTable.column("name",width=90)
-        self.employeeTable.column("email",width=90)
-        self.employeeTable.column("gender",width=90)
-        self.employeeTable.column("contact",width=90)
+        self.employeeTable.column("eid",width=50)
+        self.employeeTable.column("name",width=120)
+        self.employeeTable.column("email",width=200)
+        self.employeeTable.column("gender",width=60)
+        self.employeeTable.column("contact",width=70)
         self.employeeTable.column("dob",width=90)
         self.employeeTable.column("pass",width=90)
         self.employeeTable.column("utype",width=90)
-        # self.employeeTable.column("address",width=90)
         self.employeeTable.column("salary",width=90)
         self.employeeTable.bind("<ButtonRelease-1>",self.getData)
 
@@ -151,25 +150,6 @@ class EC(basicWindow):
         else:
             messagebox.showerror("Error",f"Select a employee first",parent=self.root)
 
-            
-    #===clear function===
-    # def clear(self):
-    #     f=self.employeeTable.focus()
-    #     content=(self.employeeTable.item(f))
-    #     row=content['values']
-
-    #     self.varEmpId.set("")
-    #     self.varName.set("")
-    #     self.varEmail.set("")
-    #     self.varGender.set("Male")
-    #     self.varContact.set("")
-    #     self.varDOB.set("")
-    #     self.varPass.set("")
-    #     self.varUType.set("Employee")
-    #     self.txtAddress.delete('1.0',END)
-    #     self.varSalary.set("")
-    #     self.show()
-
     #===search function===
     def search(self):
         con=sqlite3.connect(database=r"sms.db")
@@ -177,10 +157,7 @@ class EC(basicWindow):
         try:
             if self.varSearchTxt.get()=="":
                 messagebox.showinfo("Error",f"Enter {self.varSearchBy.get()} to search",parent=self.root)
-                # self.clear()
-                pass
             else:
-                # self.clear()
                 cur.execute(f"Select * from employee where {self.varSearchBy.get()} LIKE '%{self.varSearchTxt.get()}%'")
                 rows=cur.fetchall()
                 if rows==0:
