@@ -112,21 +112,21 @@ class supplierClass(basicWindow):
 
     def update(self):
         if self.row:
-            adddetails = Toplevel(self.root)
-            self.supplierDetail = supplierDetails(adddetails,"Update")
+            updatedetails = Toplevel(self.root)
+            self.supplierDetail = supplierDetails(updatedetails,"Update")
             supplierDetails.setData(self.supplierDetail)
             self.supplierDetail.btnCheck.configure(bg="#4caf50")
         else:
-            messagebox.showerror("Error",f"Select a employee first",parent=self.root)
+            messagebox.showerror("Error",f"Select a supplier first",parent=self.root)
 
     def delete(self):
         if self.row:
-            adddetails = Toplevel(self.root)
-            self.supplierDetail = supplierDetails(adddetails,"Delete")
+            deletedetails = Toplevel(self.root)
+            self.supplierDetail = supplierDetails(deletedetails,"Delete")
             supplierDetails.setData(self.supplierDetail)
             self.supplierDetail.btnCheck.configure(bg="#f44336")
         else:
-            messagebox.showerror("Error",f"Select a employee first",parent=self.root)
+            messagebox.showerror("Error",f"Select a supplier first",parent=self.root)
 
     #===search function===
     def search(self):
@@ -136,7 +136,6 @@ class supplierClass(basicWindow):
             if self.varSearchTxt.get()=="":
                 messagebox.showinfo("Error",f"Enter {self.varSearchBy.get()} to search",parent=self.root)
             else:
-                
                 cur.execute(f"Select * from supplier where {self.varSearchBy.get()} LIKE '%{self.varSearchTxt.get()}%'")
                 rows=cur.fetchall()
                 if rows==0:

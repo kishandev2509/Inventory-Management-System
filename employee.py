@@ -134,8 +134,8 @@ class EC(basicWindow):
 
     def update(self):
         if self.row:
-            adddetails = Toplevel(self.root)
-            self.empdetail = empDetails(adddetails,"Update")
+            updatedetails = Toplevel(self.root)
+            self.empdetail = empDetails(updatedetails,"Update")
             empDetails.setData(self.empdetail)
             self.empdetail.btnCheck.configure(bg="#4caf50")
         else:
@@ -143,8 +143,8 @@ class EC(basicWindow):
 
     def delete(self):
         if self.row:
-            adddetails = Toplevel(self.root)
-            self.empdetail = empDetails(adddetails,"Delete")
+            deletedetails = Toplevel(self.root)
+            self.empdetail = empDetails(deletedetails,"Delete")
             empDetails.setData(self.empdetail)
             self.empdetail.btnCheck.configure(bg="#f44336")
         else:
