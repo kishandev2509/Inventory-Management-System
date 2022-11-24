@@ -29,35 +29,32 @@ class supplierClass(basicWindow):
   
         #===search frame===
         searchFrame=LabelFrame(self.root,text="Search Supplier",bd=2,relief=RIDGE,font=("goudy old style",9,"bold"),bg="white")
-        searchFrame.place(x=50,y=55,width=640,height=60)
+        searchFrame.place(x=50,y=55,width=520,height=60)
 
         #===otions===
         cmbSearch=ttk.Combobox(searchFrame,textvariable=self.varSearchBy,values=("Invoice","Name","Contact"),state="readonly",justify=CENTER,font=("goudy old style",11))
         cmbSearch.pack(side=LEFT,padx=10)
         cmbSearch.current(0)
+        cmbSearch.configure(width=10)
 
         txtSearch=Entry(searchFrame,textvariable=self.varSearchTxt,font=("goudy old style",15),bg="lightyellow")
         txtSearch.pack(side=LEFT,padx=10)
-        txtSearch.configure(width=34)
-        # .place(x=110,y=5,width=210)
-
+        txtSearch.configure(width=30)
         
-        btnSearch=Button(searchFrame,text="Search",command=self.search,bg="#4caf50",fg="white",cursor="hand2",font=("goudy old style",12))
+        btnSearch=Button(searchFrame,text="Search",command=self.search,bg="#4caf50",fg="white",cursor="hand2",font=("goudy old style",12,"bold"))
         btnSearch.pack(side=RIGHT,padx=10,pady=6)
-        # .place(x=330,y=3,width=70,height=30)
-
-
 
         #===title===
         title=Label(self.root,text="Supplier Details",bg="#0f4d7d",fg="white",font=("goudy old style",20)).place(x=50,y=10,width=1000,height=40)
 
         #===buttons===
+        btnViewAll=Button(self.root,text="View All",command=self.show,bg="#2196f3",fg="white",cursor="hand2",font=("goudy old style",20)).place(x=580,y=70,width=110,height=35)
+
         btnAdd=Button(self.root,text="Add",command=self.add,bg="#2196f3",fg="white",cursor="hand2",font=("goudy old style",20)).place(x=700,y=70,width=110,height=35)
         
         btnUpdate=Button(self.root,text="Update",command=self.update,bg="#4caf50",fg="white",cursor="hand2",font=("goudy old style",20)).place(x=820,y=70,width=110,height=35)
         
         btnDelete=Button(self.root,text="Delete",command=self.delete,bg="#f44336",fg="white",cursor="hand2",font=("goudy old style",20)).place(x=940,y=70,width=110,height=35)
-
 
         #====supplier Details===
         supFrame=Frame(self.root,bd=3,relief=RIDGE)
@@ -108,7 +105,6 @@ class supplierClass(basicWindow):
         content=(self.supplierTable.item(f))
         self.row=content['values']
 
-
     def add(self):
         adddetails = Toplevel(self.root)
         self.supplierDetail = supplierDetails(adddetails,"Add")
@@ -132,8 +128,6 @@ class supplierClass(basicWindow):
         else:
             messagebox.showerror("Error",f"Select a employee first",parent=self.root)
 
-
-
     #===search function===
     def search(self):
         con=sqlite3.connect(database=r"sms.db")
@@ -154,14 +148,12 @@ class supplierClass(basicWindow):
         except Exception as e:
             messagebox.showerror("Error",f"Error due to {str(e)}",parent=self.root)
 
-
 #=====================================================================================================================================================================
 class supplierDetails(basicWindow):
     def __init__(self, root, func):
         super().__init__(root)
         self.root.geometry("800x400+380+140")
         self.func = func
-
 
         #===content===
         lblSupplierInvoice=Label(self.root,text="Invoice No.",bg="white",font=("goudy old style",15)).place(x=50,y=20)
@@ -176,11 +168,9 @@ class supplierDetails(basicWindow):
         lblDesc=Label(self.root,text="Description",bg="white",font=("goudy old style",15)).place(x=50,y=140)
         self.txtDesc=Text(self.root,bg="lightyellow",font=("goudy old style",15))
         self.txtDesc.place(x=180,y=140,width=470,height=200)
-
         
         self.btnCheck=Button(self.root,text=self.func,command=self.check,fg="white",cursor="hand2",font=("goudy old style",20))
         self.btnCheck.place(x=500,y=100,width=150,height=27)
-        
 
     def setData(self):
         self.varSupInvoice.set(obj.row[0])
@@ -196,7 +186,7 @@ class supplierDetails(basicWindow):
             self.update()
         elif self.func == "Delete":
             self.delete()
-        supplierClass.show(obj)
+        supplierClass.show(self=obj)
 
     #===add function===
     def add(self):
@@ -219,7 +209,6 @@ class supplierDetails(basicWindow):
         except Exception as e:
             messagebox.showerror("Error",f"Error due to {str(e)}",parent=self.root)
         
-
     #===update function===
     def update(self):
         con=sqlite3.connect(database=r"sms.db")

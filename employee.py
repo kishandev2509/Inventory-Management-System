@@ -66,8 +66,8 @@ class EC(basicWindow):
         
         btnDelete=Button(self.root,text="Delete",command=self.delete,bg="#f44336",fg="white",cursor="hand2",font=("goudy old style",20)).place(x=980,y=62,width=100,height=27)
         
-        # btnClear=Button(self.root,text="Clear",command=self.clear,bg="#607d8b",fg="white",cursor="hand2",font=("goudy old style",20)).place(x=860,y=25,width=100,height=27)
-
+        btnViewAll=Button(self.root,text="View All",command=self.show,bg="#2196f3",fg="white",cursor="hand2",font=("goudy old style",20)).place(x=980,y=25,width=100,height=27)
+        
         #====Employee Details===
         empFrame=Frame(self.root,bd=3,relief=RIDGE)
         empFrame.place(x=0,y=150,relwidth=1,height=350)
