@@ -109,40 +109,10 @@ class billClass:
         lblContact=Label(customerFrame,text="Contact no. ",font=("times new roman",13),bg="white").place(x=250,y=35)
         txtContact=Entry(customerFrame,textvariable=self.varCContact,bg="lightyellow",font=("goudy old style",13)).place(x=340,y=35,width=170)
 
-        #===Calculator and cart Frame===
-        calculatorCartFrame=Frame(self.root,bd=2,relief=RIDGE,bg="white")
-        calculatorCartFrame.place(x=420,y=190,width=530,height=360)
-
-        #===Calculator Frame===
-        calculatorFrame=Frame(calculatorCartFrame,bd=8,relief=RIDGE,bg="white")
-        calculatorFrame.place(x=5,y=10,width=268,height=340)
-        
-        txtCalculatorInput=Entry(calculatorFrame,textvariable=self.varCalculatorInput,font=("arial",15,"bold"),bd=10,relief=GROOVE,state="readonly",justify="right").grid(row=0,columnspan=4)
-        #==r1==
-        btn7=Button(calculatorFrame,command=lambda:self.getInput("7"),text="7",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=1,column=0)
-        btn8=Button(calculatorFrame,command=lambda:self.getInput("8"),text="8",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=1,column=1)
-        btn9=Button(calculatorFrame,command=lambda:self.getInput("9"),text="9",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=1,column=2)
-        btnSum=Button(calculatorFrame,command=lambda:self.getInput("+"),text="+",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=1,column=3)
-        #==r2==
-        btn4=Button(calculatorFrame,command=lambda:self.getInput("4"),text="4",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=2,column=0)
-        btn5=Button(calculatorFrame,command=lambda:self.getInput("5"),text="5",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=2,column=1)
-        btn6=Button(calculatorFrame,command=lambda:self.getInput("6"),text="6",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=2,column=2)
-        btnSub=Button(calculatorFrame,command=lambda:self.getInput("-"),text="-",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=2,column=3)
-        #==r3==
-        btn1=Button(calculatorFrame,command=lambda:self.getInput("1"),text="1",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=3,column=0)
-        btn2=Button(calculatorFrame,command=lambda:self.getInput("2"),text="2",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=3,column=1)
-        btn3=Button(calculatorFrame,command=lambda:self.getInput("3"),text="3",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=3,column=2)
-        btnMul=Button(calculatorFrame,command=lambda:self.getInput("*"),text="*",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=3,column=3)
-        #==r4==
-        btn0=Button(calculatorFrame,command=lambda:self.getInput("0"),text="0",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=4,column=0)
-        btnC=Button(calculatorFrame,command=self.clearCalculator,text="C",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=4,column=1)
-        btnEqual=Button(calculatorFrame,command=self.performCalculation,text="=",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=4,column=2)
-        btnDiv=Button(calculatorFrame,command=lambda:self.getInput("/"),text="/",font=("arial",15,"bold"),width=4,pady=15,cursor="hand2").grid(row=4,column=3)
-
 
         #====cart Details===
-        cartFrame=Frame(calculatorCartFrame,bd=4,relief=RIDGE,bg="white")
-        cartFrame.place(x=280,y=10,width=240,height=342)
+        cartFrame=Frame(self.root,bd=4,relief=RIDGE,bg="white")
+        cartFrame.place(x=420,y=190,width=530,height=360)
 
         self.cartTitle=Label(cartFrame,text="Cart \t Total Product: [0]",font=("goudy old style",15),bg="lightgrey")
         self.cartTitle.pack(side=TOP,fill=X)

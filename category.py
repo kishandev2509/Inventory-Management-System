@@ -99,7 +99,7 @@ class categoryClass:
                 else:
                     cur.execute(f'Insert into category (name) values("{self.varName.get()}")')
                     con.commit()
-                    messagebox.showinfo("Success","Caategory Added Successfull",parent=self.root)
+                    messagebox.showinfo("Success","Category Added Successfull",parent=self.root)
                     self.show()
         except Exception as e:
             messagebox.showerror("Error",f"Error due to {str(e)}",parent=self.root)
@@ -118,7 +118,7 @@ class categoryClass:
                 if row==None:
                     messagebox.showerror("Error","Invalid Category Name",parent=self.root)
                 else:
-                    op=messagebox.askyesno("Confirm","Do you really want to delete?")
+                    op=messagebox.askyesno("Confirm","Do you really want to delete?",parent=self.root)
                     if op:
                         cur.execute(f"Delete from category where name='{self.varName.get()}'")
                         con.commit()

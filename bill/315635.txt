@@ -1,0 +1,14 @@
+          SMS-Shop Management System         
+ Phone No. 808*****74         Kharar - 140301
+=============================================
+ Customer Name: kishan                       
+ Phone no.: 1234567890                       
+ Bill No. 315635             Date:Nov 25,2022
+=============================================
+ Product Name       QTY       Price         
+ qwerzxcv             1       Rs.9000.0      
+=============================================
+ Bill Amount                  Rs.9000.0     
+ Discount                     Rs.450.0       
+ Net Pay                      Rs.8550.0      
+=============================================

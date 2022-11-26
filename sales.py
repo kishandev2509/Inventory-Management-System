@@ -20,9 +20,7 @@ class salesClass:
 
         #===title===
         lblTitle=Label(self.root,text="View Customer Bills",bg="#0f4d7d",bd=3,relief=RIDGE,fg="white",font=("goudy old style",20)).pack(side=TOP,fill=X,padx=10,pady=20)
-        lblInvoice=Label(self.root,text="Invoice No.",bg="white",font=("goudy old style",15)).place(x=50,y=100)
-
-        
+        lblInvoice=Label(self.root,text="Bill No.",bg="white",font=("goudy old style",15)).place(x=50,y=100)   
         self.txtInvoce=Entry(self.root,textvariable=self.varInvoice,bg="lightyellow",font=("goudy old style",15))
         self.txtInvoce.place(x=160,y=100,width=180,height=28)
 
