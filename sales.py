@@ -22,11 +22,11 @@ class salesClass:
         lblTitle=Label(self.root,text="View Customer Bills",bg="#0f4d7d",bd=3,relief=RIDGE,fg="white",font=("goudy old style",20)).pack(side=TOP,fill=X,padx=10,pady=20)
         lblInvoice=Label(self.root,text="Bill No.",bg="white",font=("goudy old style",15)).place(x=50,y=100)   
         self.txtInvoce=Entry(self.root,textvariable=self.varInvoice,bg="lightyellow",font=("goudy old style",15))
-        self.txtInvoce.place(x=160,y=100,width=180,height=28)
+        self.txtInvoce.place(x=160,y=100,width=280,height=28)
 
-        btnSearch=Button(self.root,text="Search",command=self.search,bd=3,bg="#184a45",fg="white",cursor="hand2",font=("goudy old style",15,"bold")).place(x=360,y=100,width=120,height=28)
+        btnSearch=Button(self.root,text="Search",command=self.search,bd=3,bg="#184a45",fg="white",cursor="hand2",font=("goudy old style",15,"bold")).place(x=490,y=100,width=120,height=28)
 
-        btnClear=Button(self.root,text="Clear",command=self.clear,bd=3,bg="grey",cursor="hand2",font=("goudy old style",15,"bold")).place(x=490,y=100,width=120,height=28)
+        btnClear=Button(self.root,text="\u2716",command=self.clear,bd=3,bg="grey",cursor="hand2",font=("goudy old style",15,"bold")).place(x=440,y=100,width=40,height=28)
 
 
 
@@ -97,7 +97,6 @@ class salesClass:
 
     def clear(self):
         self.show()
-        self.billArea.delete("1.0",END)
         self.txtInvoce.delete(0,END)
 
 

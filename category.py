@@ -1,8 +1,6 @@
 import sqlite3
 from tkinter import messagebox, ttk
 from tkinter import *
-from PIL import Image,ImageTk
-from functions import openImage
 class categoryClass:
     def __init__(self,root):
         self.root=root
@@ -13,8 +11,8 @@ class categoryClass:
         self.root.iconbitmap("img/icon.ico")
 
         #===variables===
-        self.varCategoryId=StringVar()
-        self.varName=StringVar()
+        self.variableName = ""
+        self.varName = StringVar()
 
         #===title===
         lblTitle=Label(self.root,text="Manage Product Categories",bd=3,relief=RIDGE,bg="#184a45",fg="white",font=("goudy old style",20)).pack(side=TOP,fill=X,padx=10,pady=20)
@@ -25,7 +23,7 @@ class categoryClass:
 
         #===button===
         btnAdd=Button(self.root,text="ADD",command=self.add,bg="#4caf50",fg="white",cursor="hand2",font=("goudy old style",12)).place(x=360,y=170,width=150,height=30)
-        btnDelete=Button(self.root,text="Delete",command=self.delete,bg="red",fg="white",cursor="hand2",font=("goudy old style",12)).place(x=520,y=170,width=150,height=30)
+        btnDelete=Button(self.root,text="Delete",command=self.delete,bg="red",fg="white",cursor="hand2",font=("goudy old style",12)).place(x=900,y=170,width=150,height=30)
 
         #===content===
         #====category Details===
@@ -46,8 +44,8 @@ class categoryClass:
 
         self.categoryTable["show"]="headings"
 
-        self.categoryTable.column("cid",width=40,anchor=CENTER)
-        self.categoryTable.column("name",width=90,anchor=CENTER)
+        self.categoryTable.column("cid",width=20,anchor=CENTER)
+        self.categoryTable.column("name",anchor=CENTER)
         self.categoryTable.bind("<ButtonRelease-1>",self.getData)
 
         self.categoryTable.pack(fill=BOTH,expand=1)
@@ -73,7 +71,7 @@ class categoryClass:
         f=self.categoryTable.focus()
         content=(self.categoryTable.item(f))
         row=content['values']
-        self.varName.set(row[1])
+        self.variableName = row[1]
 
     #===add function===
     def add(self):
@@ -101,21 +99,21 @@ class categoryClass:
         con=sqlite3.connect(database=r"sms.db")
         cur=con.cursor()
         try:
-            if self.varName.get()=="":
-                messagebox.showerror("Error","Category Name must be entered",parent=self.root)
+            if self.variableName=="":
+                messagebox.showerror("Error","Select a category first",parent=self.root)
             else:
-                cur.execute(f"Select * from category where name='{self.varName.get()}'")
+                cur.execute(f"Select * from category where name='{self.variableName}'")
                 row=cur.fetchone()
                 if row==None:
                     messagebox.showerror("Error","Invalid Category Name",parent=self.root)
                 else:
                     op=messagebox.askyesno("Confirm","Do you really want to delete?",parent=self.root)
                     if op:
-                        cur.execute(f"Delete from category where name='{self.varName.get()}'")
+                        cur.execute(f"Delete from category where name='{self.variableName}'")
                         con.commit()
                         messagebox.showinfo("Success","category deleted Successfull",parent=self.root)
-                        self.varCategoryId.set("")
-                        self.varName.set("")
+                        # self.varCategoryId.set("")
+                        self.variableName = ""
                         self.show()
         except Exception as e:
             messagebox.showerror("Error",f"Error due to {str(e)}",parent=self.root)
