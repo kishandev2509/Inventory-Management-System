@@ -1,5 +1,4 @@
 from os import getcwd
-import epfile
 from subprocess import call
 import smtplib
 import sqlite3
