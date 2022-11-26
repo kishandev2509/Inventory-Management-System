@@ -66,7 +66,7 @@ class EC(basicWindow):
         
         btnDelete=Button(self.root,text="Delete",command=self.delete,bg="#f44336",fg="white",cursor="hand2",font=("goudy old style",20)).place(x=980,y=62,width=100,height=27)
         
-        btnViewAll=Button(self.root,text="View All",command=self.show,bg="#2196f3",fg="white",cursor="hand2",font=("goudy old style",20)).place(x=980,y=25,width=100,height=27)
+        btnClearFilter=Button(self.root,text="Clear Filter",command=self.show,bg="#607d86",fg="white",cursor="hand2",font=("goudy old style",16)).place(x=980,y=25,width=100,height=27)
         
         #====Employee Details===
         empFrame=Frame(self.root,bd=3,relief=RIDGE)
@@ -92,15 +92,16 @@ class EC(basicWindow):
         self.employeeTable.heading("salary",text="Salary")
         self.employeeTable["show"]="headings"
 
-        self.employeeTable.column("eid",width=50)
-        self.employeeTable.column("name",width=120)
-        self.employeeTable.column("email",width=200)
-        self.employeeTable.column("gender",width=60)
-        self.employeeTable.column("contact",width=70)
-        self.employeeTable.column("dob",width=90)
-        self.employeeTable.column("pass",width=90)
-        self.employeeTable.column("utype",width=90)
-        self.employeeTable.column("salary",width=90)
+        self.employeeTable.column("eid",width=50,anchor=CENTER)
+        self.employeeTable.column("name",width=120,anchor=CENTER)
+        self.employeeTable.column("email",width=200,anchor=CENTER)
+        self.employeeTable.column("gender",width=60,anchor=CENTER)
+        self.employeeTable.column("contact",width=70,anchor=CENTER)
+        self.employeeTable.column("dob",width=90,anchor=CENTER)
+        self.employeeTable.column("pass",width=90,anchor=CENTER)
+        self.employeeTable.column("utype",width=90,anchor=CENTER)
+        self.employeeTable.column("address",width=90,anchor=CENTER)
+        self.employeeTable.column("salary",width=90,anchor=CENTER)
         self.employeeTable.bind("<ButtonRelease-1>",self.getData)
 
         self.employeeTable.pack(fill=BOTH,expand=1)

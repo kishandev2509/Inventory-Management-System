@@ -27,19 +27,10 @@ class categoryClass:
         btnAdd=Button(self.root,text="ADD",command=self.add,bg="#4caf50",fg="white",cursor="hand2",font=("goudy old style",12)).place(x=360,y=170,width=150,height=30)
         btnDelete=Button(self.root,text="Delete",command=self.delete,bg="red",fg="white",cursor="hand2",font=("goudy old style",12)).place(x=520,y=170,width=150,height=30)
 
-        #===images===
-        self.im1=openImage("img/download.jpg",500,250)
-        self.lblIm1=Label(self.root,image=self.im1,bd=2,relief=RAISED)
-        self.lblIm1.place(x=50,y=220)
-        
-        self.im2=openImage("img/download.webp",500,250)
-        self.lblIm2=Label(self.root,image=self.im2,bd=2,relief=RAISED)
-        self.lblIm2.place(x=580,y=220)
-
         #===content===
         #====category Details===
         catFrame=Frame(self.root,bd=3,relief=RIDGE)
-        catFrame.place(x=700,y=100,width=380,height=100)
+        catFrame.place(x=50,y=220,width=1000,height=250)
 
         scrolly=Scrollbar(catFrame,orient=VERTICAL)
         scrollx=Scrollbar(catFrame,orient=HORIZONTAL)
@@ -55,8 +46,8 @@ class categoryClass:
 
         self.categoryTable["show"]="headings"
 
-        self.categoryTable.column("cid",width=40)
-        self.categoryTable.column("name",width=90)
+        self.categoryTable.column("cid",width=40,anchor=CENTER)
+        self.categoryTable.column("name",width=90,anchor=CENTER)
         self.categoryTable.bind("<ButtonRelease-1>",self.getData)
 
         self.categoryTable.pack(fill=BOTH,expand=1)

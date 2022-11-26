@@ -76,9 +76,10 @@ class supplierClass(basicWindow):
 
         self.supplierTable["show"]="headings"
 
-        self.supplierTable.column("invoice",width=50)
-        self.supplierTable.column("name",width=90)
-        self.supplierTable.column("contact",width=60)
+        self.supplierTable.column("invoice",width=50,anchor=CENTER)
+        self.supplierTable.column("name",width=90,anchor=CENTER)
+        self.supplierTable.column("contact",width=60,anchor=CENTER)
+        self.supplierTable.column("desc",width=60,anchor=CENTER)
         self.supplierTable.bind("<ButtonRelease-1>",self.getData)
 
         self.supplierTable.pack(fill=BOTH,expand=1)

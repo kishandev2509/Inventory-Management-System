@@ -60,10 +60,10 @@ class loginSystem:
 
         btnLogin=Button(loginFrame,text="Log In",command=self.login,font=("Arial Rounded MT Bold",15,"bold"),cursor="hand2",bg="#00B0F0",activebackground="#00B0F0",activeforeground="white").place(x=50,y=300,width=250,height=35)
 
-        lblHr=Label(loginFrame,bg="lightgrey").place(x=50,y=370,width=250,height=2)
-        lblOr=Label(loginFrame,text="OR",bg="white",fg="lightgrey",font=("times new roman",15,"bold")).place(x=150,y=355)
+        # lblHr=Label(loginFrame,bg="lightgrey").place(x=50,y=370,width=250,height=2)
+        # lblOr=Label(loginFrame,text="OR",bg="white",fg="lightgrey",font=("times new roman",15,"bold")).place(x=150,y=355)
         
-        btnforget=Button(loginFrame,text="Forget Password?",command=self.forgetWindow,font=("times new roman",13),bg="white",activebackground="white",cursor="hand2",fg="#00759E",activeforeground="#00759E",bd=0).place(x=100,y=390,height=35)
+        # btnforget=Button(loginFrame,text="Forget Password?",command=self.forgetWindow,font=("times new roman",13),bg="white",activebackground="white",cursor="hand2",fg="#00759E",activeforeground="#00759E",bd=0).place(x=100,y=390,height=35)
 
         createDB()
         self.setUsername()
