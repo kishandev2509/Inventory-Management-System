@@ -48,7 +48,7 @@ class supplierClass(basicWindow):
         title=Label(self.root,text="Supplier Details",bg="#0f4d7d",fg="white",font=("goudy old style",20)).place(x=50,y=10,width=1000,height=40)
 
         #===buttons===
-        btnViewAll=Button(self.root,text="View All",command=self.show,bg="#2196f3",fg="white",cursor="hand2",font=("goudy old style",20)).place(x=580,y=70,width=110,height=35)
+        btnClearFilter=Button(self.root,text="Clear Filter",command=self.show,bg="#607d86",fg="white",cursor="hand2",font=("goudy old style",16)).place(x=580,y=70,width=110,height=35)
 
         btnAdd=Button(self.root,text="Add",command=self.add,bg="#2196f3",fg="white",cursor="hand2",font=("goudy old style",20)).place(x=700,y=70,width=110,height=35)
         
