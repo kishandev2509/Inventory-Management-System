@@ -6,7 +6,7 @@ class basicWindow():
     def __init__(self,root):
         self.root=root
         self.root.geometry("1100x500+230+140")
-        self.root.title("Shop Management System Project")
+        self.root.title("Inventory Management System Project")
         self.root.config(bg="white")
         self.root.focus_force()
         self.root.iconbitmap("img/icon.ico")

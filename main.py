@@ -13,7 +13,7 @@ class loginSystem:
     def __init__(self,root):
         self.root=root
         self.root.geometry("1350x700+10+10")
-        self.root.title("Shop Management System Project")
+        self.root.title("Inventory Management System Project")
         self.root.config(bg="white")
         self.realPath=getcwd()
         try:
@@ -35,7 +35,7 @@ class loginSystem:
         welcomeFrame=Frame(self.root,bd=2,relief=RIDGE,bg="white")
         welcomeFrame.place(x=650,y=90,width=350,height=60)
 
-        lblTxt=Label(welcomeFrame,text="Welcome to SMS-Shop Management System",font=("times new roman",13),bg="white",bd=0).place(x=0,y=20,relwidth=1)
+        lblTxt=Label(welcomeFrame,text="Welcome to Inventory Management System",font=("times new roman",13),bg="white",bd=0).place(x=0,y=20,relwidth=1)
 
         #===Login frame===
         loginFrame=Frame(self.root,bd=2,relief=RIDGE,bg="white")

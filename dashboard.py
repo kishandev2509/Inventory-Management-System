@@ -14,7 +14,7 @@ class RM:
     def __init__(self,root):
         self.root=root
         self.root.geometry("1350x700+10+10")
-        self.root.title("Shop Management System Project")
+        self.root.title("Inventory Management System Project")
         self.root.config(bg="white")
         self.root.iconbitmap("img/icon.ico")
         self.newObj=None
@@ -23,13 +23,13 @@ class RM:
 
         #====Header=====
         self.headerIcon=openImage("img/cart.png",50,50)
-        header=Label(self.root,text="Shop Management System",image=self.headerIcon,compound=LEFT,font="None 30 bold",bg="#4D4DFF",fg="white",anchor="w",padx=20).place(x=0,y=0,relwidth=1,height=70)
+        header=Label(self.root,text="Inventory Management System",image=self.headerIcon,compound=LEFT,font="None 30 bold",bg="#4D4DFF",fg="white",anchor="w",padx=20).place(x=0,y=0,relwidth=1,height=70)
 
         #===logout btn===
         btnLogout=Button(self.root,text="Logout",command=self.logout,bg="yellow",cursor="hand2",font="None 20 bold").place(x=1150,y=15,width=150,height=40)
 
         #===clock===
-        self.lblClock=Label(self.root,text="Welcome to Shop Management System\t\tDate: mmm:dd,yy\t\tTime: hh:mm:ss",font="None 15",bg="grey",fg="white")
+        self.lblClock=Label(self.root,text="Welcome to Inventory Management System\t\tDate: mmm:dd,yy\t\tTime: hh:mm:ss",font="None 15",bg="grey",fg="white")
         self.lblClock.place(x=0,y=70,relwidth=1,height=30)
 
         #==left Menu===
@@ -80,7 +80,7 @@ class RM:
         
 
         #===footer===
-        self.lblFooter=Label(self.root,text="SMS-Shop Management System\n",font="None 12",bg="grey",fg="white")
+        self.lblFooter=Label(self.root,text="Inventory Management System\n",font="None 12",bg="grey",fg="white")
         self.lblFooter.pack(side=BOTTOM,fill=X)
         
         
@@ -124,7 +124,7 @@ class RM:
     def updateDateTime(self):
         date_=time.strftime("%b %d, %Y")
         time_=time.strftime("%H:%M:%S")
-        self.lblClock.config(text=f"Welcome to Shop Management System\t\tDate: {date_}\t\tTime: {time_}")
+        self.lblClock.config(text=f"Welcome to Inventory Management System\t\tDate: {date_}\t\tTime: {time_}")
         self.lblClock.after(1000,self.updateContent)
 
     def updateContent(self):

@@ -10,7 +10,7 @@ class billClass:
     def __init__(self,root):
         self.root=root
         self.root.geometry("1350x700+10+10")
-        self.root.title("Shop Management System Project")
+        self.root.title("Inventory Management System Project")
         self.root.config(bg="white")
         self.root.iconbitmap("img/icon.ico")
 
@@ -34,13 +34,13 @@ class billClass:
 
         #====Header=====
         self.headerIcon=openImage("img/cart.png",50,50)
-        header=Label(self.root,text="Shop Management System",image=self.headerIcon,compound=LEFT,font="None 30 bold",bg="blue",fg="white",anchor="w",padx=20).place(x=0,y=0,relwidth=1,height=70)
+        header=Label(self.root,text="Inventory Management System",image=self.headerIcon,compound=LEFT,font="None 30 bold",bg="blue",fg="white",anchor="w",padx=20).place(x=0,y=0,relwidth=1,height=70)
 
         #===logout btn===
         btnLogout=Button(self.root,text="Logout",command=self.logout,bg="yellow",cursor="hand2",font="None 20 bold").place(x=1150,y=15,width=150,height=40)
 
         #===clock===
-        self.lblClock=Label(self.root,text="Welcome to Shop Management System\t\tDate: mmm:dd,yy\t\tTime: hh:mm:ss",font="None 15",bg="grey",fg="white")
+        self.lblClock=Label(self.root,text="Welcome to Inventory Management System\t\tDate: mmm:dd,yy\t\tTime: hh:mm:ss",font="None 15",bg="grey",fg="white")
         self.lblClock.place(x=0,y=70,relwidth=1,height=30)
 
         #===Product Frame===
@@ -200,7 +200,7 @@ class billClass:
 
         
         #===footer===
-        lblFooter=Label(self.root,text="SMS-Shop Management System\n",font=("times new roman",11),bg="grey",fg="white",bd=0)
+        lblFooter=Label(self.root,text="Inventory Management System\n",font=("times new roman",11),bg="grey",fg="white",bd=0)
         lblFooter.pack(side=BOTTOM,fill=X)
         
         self.show()
@@ -391,7 +391,7 @@ class billClass:
     def billTop(self):
         self.invoice=int(time.strftime("%y%m%d"))+int(time.strftime("%H%M%S"))
         date_=time.strftime("%b %d,%Y")
-        billTopTemplate=f"SMS-Shop Management System".center(45)+"\n"+f" Phone No. 808*****74".ljust(30)+f"Kharar - 140301".rjust(15)+"\n"+"="*45+"\n"+f" Customer Name: {self.varCName.get()}".ljust(45)+"\n"+f" Phone no.: {self.varCContact.get()}".ljust(45)+"\n"+f" Bill No. {self.invoice}".ljust(22)+f"Date:{date_}".rjust(23)+"\n"+"="*45+"\n Product Name".ljust(15)+"QTY".center(15)+" Price".ljust(15)+"\n"
+        billTopTemplate=f"Inventory Management System".center(45)+"\n"+f" Phone No. 808*****74".ljust(30)+f"Kharar - 140301".rjust(15)+"\n"+"="*45+"\n"+f" Customer Name: {self.varCName.get()}".ljust(45)+"\n"+f" Phone no.: {self.varCContact.get()}".ljust(45)+"\n"+f" Bill No. {self.invoice}".ljust(22)+f"Date:{date_}".rjust(23)+"\n"+"="*45+"\n Product Name".ljust(15)+"QTY".center(15)+" Price".ljust(15)+"\n"
     
         self.txtBillArea.delete("1.0",END)
         self.txtBillArea.insert("1.0",billTopTemplate)
@@ -475,7 +475,7 @@ class billClass:
     def updateDateTime(self):
         date_=time.strftime("%b %d, %Y")
         time_=time.strftime("%H:%M:%S")
-        self.lblClock.config(text=f"Welcome to Shop Management Systemf\tDate: {date_}\t\tTime: {time_}")
+        self.lblClock.config(text=f"Welcome to Inventory Management Systemf\tDate: {date_}\t\tTime: {time_}")
         self.lblClock.after(1000,self.updateDateTime)
 
     def printBill(self):
